@@ -3,22 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wanderlust</title>
+    <title>Listing Details | WanderLust</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <h3>Listing Details :</h3>
-    <ul>
-      <li><%= listing.title %></li>
-      <li><%= listing.description %></li>
-      <li>&#8377; <%= listing.price.toLocaleString("en-IN") %></li>
-      <li><%= listing.location %></li>
-      <li><%= listing.country %></li>
-    </ul>
-    <br />
-    <a href="/listings/<%= listing._id %>/edit">Edit this Listing</a>
-    <br /><br />
-    <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
-      <button>Delete this listing</button>
-    </form>
+    <header>
+      <h1>WanderLust</h1>
+      <nav>
+        <a href="/listings">Home</a>
+        <a href="/listings/new">Add Listing</a>
+      </nav>
+    </header>
+    <div class="container" style="max-width:400px;">
+      <div class="listing-card" style="flex-direction:column;">
+        <img src="<%= listing.image %>" alt="<%= listing.title %>" style="width:100%; height:220px; object-fit:cover; border-radius:18px 18px 0 0;" />
+        <div class="listing-info" style="padding:1.5rem;">
+          <div class="listing-title" style="font-size:1.3rem; font-weight:700; margin-bottom:0.5rem; color:#222; font-family:'Montserrat',Arial,sans-serif;"><%= listing.title %></div>
+          <div class="listing-location" style="color:#717171; font-size:1rem; margin-bottom:0.5rem;"><%= listing.location %>, <%= listing.country %></div>
+          <div class="listing-price" style="color:#ff385c; font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">&#8377; <%= listing.price.toLocaleString("en-IN") %></div>
+          <div style="margin:1rem 0; color:#444;"> <%= listing.description %> </div>
+          <a href="/listings/<%= listing._id %>/edit" class="btn" style="width:100%; text-decoration:none;">Edit this Listing</a>
+          <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE" style="margin-top:1rem;">
+            <button class="btn" style="background:#717171; width:100%;">Delete this listing</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include('../partials/footer') %>
   </body>
 </html>
