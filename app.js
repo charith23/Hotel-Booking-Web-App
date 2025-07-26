@@ -24,6 +24,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // Add this line for JSON parsing
 app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   res.send("Hi, I am root");
@@ -83,6 +84,41 @@ app.get("/listings/:id/edit", async (req, res) => {
     console.error("Error fetching listing for edit:", err);
     res.status(500).send("Internal Server Error");
   }
+});
+
+// Update Route
+app.put("/listings/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedListing = await Listing.findByIdAndUpdate(id, req.body.listing, { new: true, runValidators: true });
+    if (!updatedListing) {
+      return res.status(404).send("Listing not found");
+    }
+    res.redirect(`/listings/${id}`);
+  } catch (err) {
+    console.error("Error updating listing:", err);
+    res.status(400).send("Bad Request");
+  }
+});
+
+// Delete Route
+app.delete("/listings/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedListing = await Listing.findByIdAndDelete(id);
+    if (!deletedListing) {
+      return res.status(404).send("Listing not found");
+    }
+    res.redirect("/listings");
+  } catch (err) {
+    console.error("Error deleting listing:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Start the server
+app.listen(6969, () => {
+  console.log("Server is running on port 6969");
 });
 
 
