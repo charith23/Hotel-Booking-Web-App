@@ -1,0 +1,325 @@
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #fff;
+  color: #222;
+  margin: 0;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #ff385c;
+  text-decoration: underline;
+}
+
+button, .btn {
+  background: #ff385c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn.view-details {
+  padding: 0.1rem 0.5rem;
+  font-size: 0.92rem;
+
+}
+
+button:hover, .btn:hover {
+  background: #d55680;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+      .header-logo svg {
+        height: 32px;
+        width: 32px;
+      }
+
+      .header-logo-text {
+        font-size: 22px;
+        font-weight: bold;
+        margin-left: 8px;
+        display: none; /* Hidden on smaller screens */
+      }
+
+      /* Main Search Bar Styles */
+      .search-bar {
+        display: flex;
+        align-items: center;
+        border: 1px solid #dddddd;
+        border-radius: 40px;
+        padding: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+        transition: box-shadow 0.2s ease;
+      }
+
+      .search-bar:hover {
+        box-shadow: 0 3px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.08);
+      }
+
+      .search-bar-section {
+        padding: 0 16px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .search-bar-section.guest-section {
+        font-weight: 400;
+        color: #717171;
+      }
+
+      .search-bar-divider {
+        height: 24px;
+        width: 1px;
+        background-color: #dddddd;
+      }
+
+      .search-icon-button {
+        background-color: #FF385C;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-left: 8px;
+      }
+
+      .search-icon-button i {
+        font-size: 14px;
+      }
+
+      /* Header Right Section: Profile Menu */
+      .profile-menu {
+        display: flex;
+        align-items: center;
+      }
+
+      .profile-menu-link {
+        text-decoration: none;
+        color: #222222;
+        font-weight: 600;
+        padding: 12px;
+        border-radius: 22px;
+        font-size: 14px;
+        transition: background-color 0.2s ease;
+      }
+
+      .profile-menu-link:hover {
+        background-color: #f7f7f7;
+      }
+
+      .profile-menu-button {
+        display: flex;
+        align-items: center;
+        border: 1px solid #dddddd;
+        border-radius: 30px;
+        padding: 5px 5px 5px 12px;
+        margin-left: 8px;
+        cursor: pointer;
+        transition: box-shadow 0.2s ease;
+      }
+
+      .profile-menu-button:hover {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+      }
+
+      .profile-menu-button .fa-bars {
+        margin-right: 12px;
+      }
+
+      .profile-menu-button .fa-user-circle {
+        font-size: 28px;
+        color: #717171;
+      }
+
+      /* Filters Bar Styles */
+      .filters-container {
+        padding: 16px 80px;
+        border-bottom: 1px solid #ebebeb;
+        position: sticky;
+        top: 80px;
+        background-color: white;
+        z-index: 99;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .filters {
+        display: flex;
+        gap: 32px;
+        overflow-x: auto;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .filters::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+      }
+
+      .filter-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding-bottom: 12px;
+        cursor: pointer;
+        color: #717171;
+        border-bottom: 2px solid transparent;
+        transition: color 0.2s, border-bottom-color 0.2s;
+        white-space: nowrap;
+      }
+
+      .filter-btn:hover {
+        color: #222222;
+        border-bottom-color: #dddddd;
+      }
+
+      .filter-btn.active {
+        color: #222222;
+        border-bottom-color: #222222;
+      }
+
+      .filter-btn i {
+        font-size: 24px;
+      }
+
+      .filter-btn span {
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      /* Main Content: Property Grid */
+      .main-content {
+        padding: 24px 80px;
+      }
+
+      .property-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 40px 24px;
+      }
+
+      /* Property Card Styles */
+      .property-card {
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .property-card-image-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%; /* 1:1 Aspect Ratio */
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 12px;
+      }
+
+      .property-card-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .property-card:hover .property-card-image {
+        transform: scale(1.05);
+      }
+
+      .property-card-info {
+        font-size: 15px;
+      }
+
+      .property-card-location {
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .property-card-rating {
+        display: flex;
+        align-items: center;
+      }
+
+      .property-card-rating i {
+        font-size: 12px;
+        margin-right: 4px;
+        color: #FF385C;
+      }
+
+      .property-card-details {
+        color: #717171;
+        margin-top: 4px;
+      }
+
+      .property-card-price {
+        margin-top: 8px;
+      }
+
+      .property-card-price .price {
+        font-weight: 600;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 1128px) {
+        .header, .filters-container, .main-content {
+          padding-left: 40px;
+          padding-right: 40px;
+        }
+      }
+
+      @media (max-width: 950px) {
+        .search-bar-section {
+          display: none; /* Hides text sections in search bar */
+        }
+        .search-bar-divider {
+          display: none;
+        }
+        .search-bar {
+          padding: 8px 8px 8px 16px;
+          width: auto;
+        }
+        .search-bar-section.guest-section {
+          display: block; /* Show a simplified version */
+          padding: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-logo-text {
+          display: none;
+        }
+        .profile-menu-link {
+          display: none;
+        }
+        .header, .filters-container, .main-content {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+    }
